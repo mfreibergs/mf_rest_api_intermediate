@@ -8,7 +8,7 @@ end
 
 Then('a new user is created') do
     body = user_body_generator
-    
+
     response = User_API.create_user(body)
 
     # Error handling
@@ -26,7 +26,6 @@ end
 
 Then('the users {string} is updated') do |value|
     # Should have a step before that creates @existing_user
-
     time = Time.now.strftime("%Y_%m_%d_%H_%M_%S")
     id = @existing_user["id"]
     body = {value => time}
@@ -40,7 +39,6 @@ end
 
 Then('create a new user with the same {string}') do |value|
     # Should have a step before that creates @existing_user
-
     body = user_body_generator
     body[value] = @existing_user[value]
 
